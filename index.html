@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RgbColor Generator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #container{
+            background-color: red;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 id="h1">Click the button to generate random rgb color</h1>
+        <input type="text" id="input">
+        <button id="btn">Click Me</button>
+    </div>
+    <script>
+        function hexGenerator(){
+            var red = Math.floor(Math.random() * 256).toString(16).padStart(2,"0");
+            var green = Math.floor(Math.random() * 256).toString(16).padStart(2,"0");
+            var blue = Math.floor(Math.random() * 256).toString(16).padStart(2,"0");
+
+            var hexColor = `#${red}${green}${blue}`;
+            
+            return hexColor;
+        };
+        function bgChange(){
+            var generatedHexColor = hexGenerator()
+
+            input.value = generatedHexColor;
+            container.style.background = generatedHexColor;
+        }
+
+        var container = document.querySelector("#container")
+        var input = document.querySelector("#input")
+        var btn = document.querySelector("#btn")
+
+        btn.addEventListener('click',bgChange)
+
+        //asadullah
+
+    </script>
+</body>
+</html>
